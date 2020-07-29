@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Consolas;
+}
+
+body {
+	height: 100vh;
+	background: #000;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.loader {
+	height: 10px;
+	width: 300px;
+	border-radius: 20px;
+	border: 1px solid #03e9f4;
+	box-shadow: 0 0 15px 0 #03e9f4;
+	position: relative;
+}
+
+.loader::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-radius: 20px;
+	background: #03e9f4;
+	height: 100%;
+	width: 20px;
+	animation: load 6s linear infinite;
+}
+
+.loader::after {
+	content: 'Loading';
+	position: absolute;
+	top: 30px;
+	left: 50%;
+	display: block;
+	transform: translateX(-50%);
+	color: #fff;
+	animation: transform 2s linear infinite;
+}
+
+@keyframes load {
+	0% {
+		width: 20px;
+	}
+	25% {
+		width: 60px;
+	}
+	50% {
+		width: 100px;
+	}
+	75% {
+		width: 290px;
+	}
+	100% {
+		width: 300px;
+	}
+}
+
+@keyframes transform {
+	0%, 100% {
+		content: 'Loading';
+	}
+	25% {
+		content: 'Loading.';
+	}
+	50% {
+		content: 'Loading..';
+	}
+	75% {
+		content: 'Loading...';
+	}
+}
+
+@font-face {
+	font-family: Consolas;
+	src: url(consolas.ttf);
+	font-weight: normal;
+	font-style: normal;
+}
